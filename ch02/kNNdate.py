@@ -19,6 +19,6 @@ def file2matrix(filename):  # file to numpy_matrix
 
 
 if __name__ == '__main__':
-    '''haha'''
+    '''haha buqueindg '''
     datingDataSetMat, datingLabels = file2matrix('datingTestSet2.txt')
     print(datingLabels)
