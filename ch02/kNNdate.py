@@ -17,6 +17,8 @@ def file2matrix(filename):  # file to numpy_matrix
         index += 1
     return returnMat, classLabelVector  # Return the feature matrix and the class matrix
 
+
 if __name__ == '__main__':
+    '''haha'''
     datingDataSetMat, datingLabels = file2matrix('datingTestSet2.txt')
     print(datingLabels)
