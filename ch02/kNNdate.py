@@ -2,7 +2,7 @@
 
 import numpy as np
 
-def file2matrix(filename):  # file to numpy_matrix
+def filematrix(filename):  # file to numpy_matrix
     fr = open(filename)  # open file and save to fr
     arrayOLines = fr.readlines()  # read by line and save to arrayOLines
     numberOfLines = len(arrayOLines)  # get the number of lines in the file
@@ -17,8 +17,21 @@ def file2matrix(filename):  # file to numpy_matrix
         index += 1
     return returnMat, classLabelVector  # Return the feature matrix and the class matrix
 
+''' 
+Data normalization formula: newValue = (oldValue - min)/(max - min)
+'''
+
+def autoNorm(dataSet):
+    min_values = dataSet.min(0)  # Minimum value of each column
+    print(min_values)
+    max_values = dataSet.max(0)  # Maximum value of each column
+    print(max_values)
+    ranges = max_values - min_values
+    normdataSet = np.zeros(np.shape(dataSet))  # matrix: (1000,3)
+    m = dataSet.shape[0]  # m = 1000
+    normdataSet = dataSet - np.tile(min_values, (m, 1))  # oldValue - min
+    normdataSet = normdataSet/np.tile(ranges, (m, 1))  # newValue = (oldValue - min)/(max - min)
+    return normdataSet, ranges, min_values
 
 if __name__ == '__main__':
-    '''haha that greet '''
-    datingDataSetMat, datingLabels = file2matrix('datingTestSet2.txt')
-    print(datingLabels)
+    normdataSet, ranges, min_values = kNNdate.autonorm(datingdataSetMat)

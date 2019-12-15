@@ -50,10 +50,3 @@ if __name__ == '__main__':
     print(group,labels)
     classify_ = classify0([0, 0], group, labels, 3)
     print(classify_)
-
-
-
-
-
-
-
