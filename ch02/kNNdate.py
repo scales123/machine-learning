@@ -25,7 +25,7 @@ def classify0(inX, dataSet, labels, k):
     # 返回一个列表按照第二个元素进行降序排列
     return sortedClassCount[0][0]  # 返回出现次数最多到label值，即为当前的预测分类
 
-def filematrix(filename):  # file to numpy_matrix
+def file2matrix(filename):  # file to numpy_matrix
     fr = open(filename)  # open file and save to fr
     arrayOLines = fr.readlines()  # read by line and save to arrayOLines
     numberOfLines = len(arrayOLines)  # get the number of lines in the file
@@ -36,7 +36,7 @@ def filematrix(filename):  # file to numpy_matrix
         line = line.strip()  # delete all 'enter', get 'one row' of data
         listFromLine = line.split('\t')  # use 'tab' spilt one row of data to an element list
         returnMat[index, :] = listFromLine[0:3]  # Assign the first three elements of each row in turn to returnMat
-        classLabelVector.append(int(listFromLine[-1]))
+        classLabelVector.append(int(float(listFromLine[-1])))
         index += 1
     return returnMat, classLabelVector  # Return the feature matrix and the class matrix
 
@@ -66,8 +66,8 @@ print(datingLabels[numTestVecs:m])  # 所对应的标签
 
 def datingClassTest():
     hoRatio = 0.10  # Extract 10% from dataset
-    datingDataSetMat, classLabelsVector = filematrix('datingTestSet.txt')
-    normMat, ranges, min_values = autoNorm(datingDataSetMat)
+    returnMat, classLabelsVector = file2matrix('datingTestSet.txt')
+    normMat, ranges, min_values = autoNorm(returnMat)
     m = normMat.shape[0]
     numTestVecs = int(m*hoRatio)
     errorCount = 0.0
