@@ -56,12 +56,24 @@ def autoNorm(dataSet):
     normdataSet = normdataSet/np.tile(ranges, (m, 1))  # newValue = (oldValue - min)/(max - min)
     return normdataSet, ranges, min_values
 
+'''
+classifierResult = classify0(normMat[i,:], normMat[numTestVecs:m, :], classLabelsVector[numTestVecs:m, 3])
+上面这行也可以这么写：
+print(normMat[i, :])    # 第i行的向量，i从0到99的整数，闭区间
+print(normMat[numTestVecs:m, :])    # numTestVecs = 100，m = 1000，这个表示后900行的向量
+print(datingLabels[numTestVecs:m])  # 所对应的标签
+'''
+
 def datingClassTest():
-    hoRatio = 0.10
+    hoRatio = 0.10  # Extract 10% from dataset
     returnMat, classLabelsVector = filematrix('datingTestSet.txt')
     normMat, ranges, min_values = autoNorm(returnMat)
     m = normMat.shape[0]
     numTestVecs = int(m*hoRatio)
     errorCount = 0.0
-    for i in range(numTestVecs)
-        classfierResult = classify0
+    for i in range(numTestVecs):
+        classifierResult = classify0(normMat[i,:], normMat[numTestVecs:m, :],classLabelsVector[numTestVecs:m], 3)
+        print("the classifier came back with: %d, the real answer is: %d"\
+            % (classifierResult, classLabelsVector[i]))
+        if (classifierResult != classLabelsVector[i]): errorCount += 1.0
+    print("the total error rate is: %f" % (errorCount/float(numTestVecs)))
