@@ -33,5 +33,6 @@ def autoNorm(dataSet):
     normdataSet = normdataSet/np.tile(ranges, (m, 1))  # newValue = (oldValue - min)/(max - min)
     return normdataSet, ranges, min_values
 
-if __name__ == '__main__':
-    normdataSet, ranges, min_values = kNNdate.autonorm(datingdataSetMat)
+def datingClassTest():
+    hoRatio = 0.10
+    returnMat, classLabelsVector = filematrix('datingTestSet.txt')
