@@ -65,7 +65,7 @@ print(datingLabels[numTestVecs:m])  # 所对应的标签
 '''
 
 def datingClassTest():
-    hoRatio = 0.10  # Extract 10% from dataset
+    hoRatio = 0.10  # #hold out 10%
     returnMat, classLabelsVector = file2matrix('datingTestSet.txt')
     normMat, ranges, min_values = autoNorm(returnMat)
     m = normMat.shape[0]
