@@ -50,8 +50,8 @@ def handwritingClassTest():
         fileStr = fileNameStr.split('.')[0]     #take off .txt
         classNumStr = int(fileStr.split('_')[0])  # get image_class_labels
         hwLabels.append(classNumStr)
-        trainingMat[i,:] = img2vector('trainingDigits/%s' % fileNameStr)
-    testFileList = listdir('testDigits')        #iterate through the test set
+        trainingMat[i,:] = img2vector('trainingDigits/%s' % fileNameStr)  # 将每一个文件的1x1024数据存储到trainingMat中
+    testFileList = listdir('testDigits')        # 返回testDigits目录下的文件列表
     errorCount = 0.0
     mTest = len(testFileList)
     for i in range(mTest):
