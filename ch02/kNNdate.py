@@ -2,6 +2,10 @@
 
 import numpy as np
 import operator
+import matplotlib.pyplot as plt
+
+from kNNclassify import createDataSet
+
 
 def classify0(inX, dataSet, labels, k):
     # ①距离计算：已知类别数据集与当前点的距离（欧氏距离公式）
@@ -50,10 +54,9 @@ def autoNorm(dataSet):
     max_values = dataSet.max(0)  # Maximum value of each column
     print(max_values)
     ranges = max_values - min_values
-    normdataSet = np.zeros(np.shape(dataSet))  # matrix: (1000,3)
     m = dataSet.shape[0]  # m = 1000
-    normdataSet = dataSet - np.tile(min_values, (m, 1))  # oldValue - min
-    normdataSet = normdataSet/np.tile(ranges, (m, 1))  # newValue = (oldValue - min)/(max - min)
+    fenzi = dataSet - np.tile(min_values, (m, 1))  # oldValue - min
+    normdataSet = fenzi/np.tile(ranges, (m, 1))  # newValue = (oldValue - min)/(max - min)
     return normdataSet, ranges, min_values
 
 '''
@@ -88,6 +91,27 @@ def classifyPerson():
     inArr = np.array([ffMiles, percentTats, iceCream])
     classifierResult = classify0((inArr - min_values)/(ranges, normMat, classLabelsVector, 3))
     print("You will probably like this person: ", resultList[classifierResult - 1])
+
+if __name__ == '__main__':
+    group, labels = createDataSet()
+    print(group,labels)
+    classify_ = classify0([0, 0], group, labels, 3)
+    print(classify_)
+    returnMat, classLabelsVector = file2matrix('datingTestSet2.txt')
+    print(returnMat)
+    print(classLabelsVector[0:20])
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.scatter(returnMat[:,1], returnMat[:,2],15.0*np.array(classLabelsVector), 15.0*np.array(classLabelsVector))
+    plt.show()
+    normdataSet, ranges, min_values = autoNorm(returnMat)
+    print(normdataSet)
+    print(ranges)
+    print(min_values)
+    datingClassTest()
+    classifyPerson()
+
+
 
 
 
