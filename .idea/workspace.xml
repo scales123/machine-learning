@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d95f0092-8497-4333-a961-0247c32a382b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ch02/kNNhw.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch02/kNNdate.py" beforeDir="false" afterPath="$PROJECT_DIR$/ch02/kNNdate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch02/kNNhw.py" beforeDir="false" afterPath="$PROJECT_DIR$/ch02/kNNhw.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +17,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../MLiA_SourceCode/machinelearninginaction/Ch02/kNN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-133">
-              <caret line="61" column="26" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="37" />
+            <state relative-caret-position="159">
+              <caret line="84" column="6" lean-forward="true" selection-start-line="83" selection-end-line="106" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -25,8 +26,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch02/kNNdate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="67" column="35" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
+            <state relative-caret-position="396">
+              <caret line="92" selection-start-line="92" selection-end-line="92" />
               <folding>
                 <element signature="e#23#41#0" expanded="true" />
               </folding>
@@ -36,7 +37,14 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch02/kNNhw.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+              <folding>
+                <element signature="e#23#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -56,6 +64,7 @@
       <list>
         <option value="$PROJECT_DIR$/ch02/kNNclassify.py" />
         <option value="$PROJECT_DIR$/ch02/testkNN.py" />
+        <option value="$PROJECT_DIR$/../MLiA_SourceCode/machinelearninginaction/Ch02/kNN.py" />
         <option value="$PROJECT_DIR$/ch02/kNNdate.py" />
         <option value="$PROJECT_DIR$/ch02/kNNhw.py" />
       </list>
@@ -120,8 +129,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.kNNdate">
-    <configuration name="kNNclassify" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager">
+    <configuration name="kNNhw" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="myself_machine_learning" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -134,29 +143,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch02/kNNclassify.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="kNNdate" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="myself_machine_learning" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\HP\Anaconda3\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch02" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch02/kNNdate.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch02/kNNhw.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -167,8 +154,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.kNNdate" />
-        <item itemvalue="Python.kNNclassify" />
+        <item itemvalue="Python.kNNhw" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +169,7 @@
       <option name="presentableId" value="Default" />
       <updated>1576337589732</updated>
       <workItem from="1576337591018" duration="2401000" />
-      <workItem from="1576377263175" duration="18241000" />
+      <workItem from="1576377263175" duration="22633000" />
     </task>
     <task id="LOCAL-00001" summary="add kNNpw">
       <created>1576390549695</created>
@@ -255,17 +241,31 @@
       <option name="project" value="LOCAL" />
       <updated>1576411739159</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="1">
+      <created>1576412043483</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1576412043483</updated>
+    </task>
+    <task id="LOCAL-00012" summary="1">
+      <created>1576461212548</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1576461212548</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20642000" />
+    <option name="totallyTimeSpent" value="25034000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13069706" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13069706" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -279,7 +279,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.28328612" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.28328612" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -300,6 +300,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/myself_machine_learning$kNNclassify.coverage" NAME="kNNclassify Coverage Results" MODIFIED="1576337954320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch02" />
+    <SUITE FILE_PATH="coverage/myself_machine_learning$kNNhw.coverage" NAME="kNNhw Coverage Results" MODIFIED="1576461235300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch02" />
     <SUITE FILE_PATH="coverage/myself_machine_learning$kNNdate.coverage" NAME="kNNdate Coverage Results" MODIFIED="1576411227379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch02" />
   </component>
   <component name="editorHistoryManager">
@@ -332,15 +333,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../MLiA_SourceCode/machinelearninginaction/Ch02/kNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-133">
-          <caret line="61" column="26" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="37" />
+        <state relative-caret-position="159">
+          <caret line="84" column="6" lean-forward="true" selection-start-line="83" selection-end-line="106" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch02/kNNdate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="67" column="35" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
+        <state relative-caret-position="396">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
           <folding>
             <element signature="e#23#41#0" expanded="true" />
           </folding>
@@ -348,7 +349,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch02/kNNhw.py">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+          <folding>
+            <element signature="e#23#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
