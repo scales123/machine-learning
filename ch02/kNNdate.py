@@ -89,7 +89,7 @@ def classifyPerson():
     returnMat, classLabelsVector = file2matrix('datingTestSet2.txt')
     normMat, ranges, min_values = autoNorm(returnMat)
     inArr = np.array([ffMiles, percentTats, iceCream])
-    classifierResult = classify0((inArr - min_values)/(ranges, normMat, classLabelsVector, 3))
+    classifierResult = classify0((inArr - min_values)/ranges, normMat, classLabelsVector, 3)
     print("You will probably like this person: ", resultList[classifierResult - 1])
 
 if __name__ == '__main__':
@@ -97,18 +97,23 @@ if __name__ == '__main__':
     print(group,labels)
     classify_ = classify0([0, 0], group, labels, 3)
     print(classify_)
+
     returnMat, classLabelsVector = file2matrix('datingTestSet2.txt')
     print(returnMat)
     print(classLabelsVector[0:20])
+
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.scatter(returnMat[:,1], returnMat[:,2],15.0*np.array(classLabelsVector), 15.0*np.array(classLabelsVector))
     plt.show()
+
     normdataSet, ranges, min_values = autoNorm(returnMat)
     print(normdataSet)
     print(ranges)
     print(min_values)
+
     datingClassTest()
+
     classifyPerson()
 
 
