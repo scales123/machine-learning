@@ -195,8 +195,8 @@ Modify:
 
 def getNumLeafs(myTree):
     numLeafs = 0  # 初始化叶子
-    firstStr = next(iter(
-        myTree))  # py3中myTree.keys()返回的是dict_keys,不在是list,所以不能使用myTree.keys()[0]的方法获取结点属性，可以使用list(myTree.keys())[0]
+    firstSides = list(myTree.keys())  # python2表达：firstStr = myTree.keys()[0]
+    firstStr = firstSides[0]  # 找到输入的第一个元素
     secondDict = myTree[firstStr]  # 获取下一组字典
     for key in secondDict.keys():
         if type(secondDict[key]).__name__ == 'dict':  # 测试该结点是否为字典，如果不是字典，代表此结点为叶子结点
@@ -222,8 +222,8 @@ Modify:
 
 def getTreeDepth(myTree):
     maxDepth = 0  # 初始化决策树深度
-    firstStr = next(iter(
-        myTree))  # py3中myTree.keys()返回的是dict_keys,不在是list,所以不能使用myTree.keys()[0]的方法获取结点属性，可以使用list(myTree.keys())[0]
+    firstSides = list(myTree.keys())  # python2表达：firstStr = myTree.keys()[0]
+    firstStr = firstSides[0]  # 找到输入的第一个元素
     secondDict = myTree[firstStr]  # 获取下一个字典
     for key in secondDict.keys():
         if type(secondDict[key]).__name__ == 'dict':  # 测试该结点是否为字典，如果不是字典，代表此结点为叶子结点
@@ -259,7 +259,7 @@ def plotNode(nodeTxt, centerPt, parentPt, nodeType):
                             va="center", ha="center", bbox=nodeType, arrowprops=arrow_args, FontProperties=font)
 
 """
-函数说明:标注有向边属性值
+函数说明:在父子节点间填充文本信息
 
 Parameters:
     cntrPt、parentPt - 用于计算标注位置
@@ -338,8 +338,8 @@ def createPlot(inTree):
     createPlot.ax1 = plt.subplot(111, frameon=False, **axprops)  # 去掉x、y轴
     plotTree.totalW = float(getNumLeafs(inTree))  # 获取决策树叶结点数目
     plotTree.totalD = float(getTreeDepth(inTree))  # 获取决策树层数
-    plotTree.xOff = -0.5 / plotTree.totalW;
-    plotTree.yOff = 1.0;  # x偏移
+    plotTree.xOff = -0.5 / plotTree.totalW
+    plotTree.yOff = 1.0  # x偏移
     plotTree(inTree, (0.5, 1.0), '')  # 绘制决策树
     plt.show()  # 显示绘制结果
 
