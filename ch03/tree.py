@@ -301,7 +301,9 @@ def plotTree(myTree, parentPt, nodeTxt):
     leafNode = dict(boxstyle="round4", fc="0.8")  # 设置叶结点格式
     numLeafs = getNumLeafs(myTree)  # 获取决策树叶结点数目，决定了树的宽度
     depth = getTreeDepth(myTree)  # 获取决策树层数
-    firstStr = next(iter(myTree))  # 下个字典
+    firstSides = list(myTree.keys())
+    firstStr = firstSides[0]#找到输入的第一个元素
+    # firstStr = next(iter(myTree))  # 下个字典
     cntrPt = (plotTree.xOff + (1.0 + float(numLeafs)) / 2.0 / plotTree.totalW, plotTree.yOff)  # 中心位置
     plotMidText(cntrPt, parentPt, nodeTxt)  # 标注有向边属性值
     plotNode(firstStr, cntrPt, parentPt, decisionNode)  # 绘制结点
