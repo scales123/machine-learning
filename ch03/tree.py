@@ -196,7 +196,7 @@ Modify:
 def getNumLeafs(myTree):
     numLeafs = 0  # 初始化叶子
     firstStr = next(iter(
-        myTree))  # python3中myTree.keys()返回的是dict_keys,不在是list,所以不能使用myTree.keys()[0]的方法获取结点属性，可以使用list(myTree.keys())[0]
+        myTree))  # py3中myTree.keys()返回的是dict_keys,不在是list,所以不能使用myTree.keys()[0]的方法获取结点属性，可以使用list(myTree.keys())[0]
     secondDict = myTree[firstStr]  # 获取下一组字典
     for key in secondDict.keys():
         if type(secondDict[key]).__name__ == 'dict':  # 测试该结点是否为字典，如果不是字典，代表此结点为叶子结点
@@ -223,7 +223,7 @@ Modify:
 def getTreeDepth(myTree):
     maxDepth = 0  # 初始化决策树深度
     firstStr = next(iter(
-        myTree))  # python3中myTree.keys()返回的是dict_keys,不在是list,所以不能使用myTree.keys()[0]的方法获取结点属性，可以使用list(myTree.keys())[0]
+        myTree))  # py3中myTree.keys()返回的是dict_keys,不在是list,所以不能使用myTree.keys()[0]的方法获取结点属性，可以使用list(myTree.keys())[0]
     secondDict = myTree[firstStr]  # 获取下一个字典
     for key in secondDict.keys():
         if type(secondDict[key]).__name__ == 'dict':  # 测试该结点是否为字典，如果不是字典，代表此结点为叶子结点
