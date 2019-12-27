@@ -345,7 +345,7 @@ def createPlot(inTree):
     plotTree(inTree, (0.5, 1.0), '')  # 绘制决策树
     plt.show()  # 显示绘制结果
 
-if __name__ == '__main__':
+
     dataSet, features = createDataSet()
     print(dataSet)
     print(calcShannonEnt(dataSet))
@@ -360,3 +360,5 @@ if __name__ == '__main__':
     print(myTree)
 
     createPlot(myTree)
+
+
