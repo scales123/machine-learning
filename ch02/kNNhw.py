@@ -65,3 +65,6 @@ def handwritingClassTest():
     print ("\nthe total number of errors is: %d" % errorCount)
     print ("\nthe total error rate is: %f" % (errorCount/float(mTest)))
 
+if __name__ == '__main__':
+    handwritingClassTest()
+
