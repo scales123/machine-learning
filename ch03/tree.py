@@ -345,7 +345,7 @@ def createPlot(inTree):
     plotTree(inTree, (0.5, 1.0), '')  # 绘制决策树
     plt.show()  # 显示绘制结果
 
-
+if __name__ == '__main__':
     dataSet, features = createDataSet()
     print(dataSet)
     print(calcShannonEnt(dataSet))
@@ -362,3 +362,9 @@ def createPlot(inTree):
     createPlot(myTree)
 
 
+    def large(*num):  # 定义一个large函数，函数的参数为可变参数
+        ma = num[0]  # 初始化最大值
+        for y in num:
+            if ma < y:  # 对参数进行两两比较
+                ma = y  # 对最大值重新赋值
+        return ma  # 返回最大值
