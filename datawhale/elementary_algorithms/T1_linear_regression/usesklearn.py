@@ -47,10 +47,13 @@ lr = LinearRegression(fit_intercept=True)
 # 训练模型
 lr.fit(x,y)
 print("估计的参数值为：%s" %(lr.coef_))
+plt.show(lr.coef_)
 # 计算R平方
 print("R2：%s" %(lr.score(x,y)))
+plt.show(lr.score())
 # 任意设定变量，预测目标值
 x_test = np.array([2,4,5]).reshape(1,-1)
 y_hat = lr.predict(x_test)
 print("预测值为：%s" %(y_hat))
+plt.show(y_hat)
 
