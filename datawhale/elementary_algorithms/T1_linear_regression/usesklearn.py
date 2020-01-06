@@ -59,9 +59,9 @@ plt.rcParams['font.sans-serif'] = ['SimHei']
 t=np.arange(len(x_test))
 plt.figure(facecolor='w')#建一个画布，facecolor是背景色
 plt.plot(t, x.reshape(1,-1), 'r-', linewidth=2, label='真实值')
-plt.plot(t, y_hat, 'g-', linewidth=1, label='预测值')
+plt.plot(t, y_hat, 'g-', linewidth=1, label='predict value')
 plt.legend(loc = 'upper left') # 显示图例，设置图例的位置
-plt.title("线性回归预测真实值之间的关系", fontsize=20)
+plt.title("The relationship between the predicted value and the true value", fontsize=14)
 plt.grid(b=True)#加网格
 plt.show()
 
