@@ -2,7 +2,6 @@
 
 import numpy as np
 from sklearn.linear_model import LinearRegression
-import matplotlib.pyplot as plt
 
 """
 sklearn.linear_model参数详解：
@@ -38,30 +37,23 @@ score： 评估
 参考https://blog.csdn.net/weixin_39175124/article/details/79465558
 """
 # 生成数据
-np.random.seed(1000)  # 当我们设置相同的seed时，每次生成的随机数也相同，如果不设置seed，则每次生成的随机数都会不一样
-x = np.random.rand(500,3)  # 通过本函数可以返回一个或一组服从“0~1”均匀分布的随机样本值。随机样本取值范围是[0,1)，不包括1
-y = x.dot(np.array([5,6,7]))  # 构建映射关系，模拟真实的数据待预测值,映射关系为y = 5 + 6*x1 + 7*x2
+# 生成随机数
+np.random.seed(1234)
+x = np.random.rand(500, 3)
+# 构建映射关系，模拟真实的数据待预测值,映射关系为y = 4.2 + 5.7*x1 + 10.8*x2，可自行设置值进行尝试
+y = x.dot(np.array([4.2, 5.7, 10.8]))
 
 # 调用模型
 lr = LinearRegression(fit_intercept=True)
 # 训练模型
-lr.fit(x,y)
-print("估计的参数值为：%s" %(lr.coef_))
+lr.fit(x, y)
+print("估计的参数值为：%s" % (lr.coef_))
 # 计算R平方
-print("R2：%s" %(lr.score(x,y)))
+print("R2：%s" % (lr.score(x, y)))
 # 任意设定变量，预测目标值
-x_test = np.array([2,4,5]).reshape(1,-1)
+x_test = np.array([2, 4, 5]).reshape(1, -1)
 y_hat = lr.predict(x_test)
-print("预测值为：%s" %(y_hat))
+print("预测值为：%s" % (y_hat))
 
-## 预测值和实际值画图比较
-plt.rcParams['font.sans-serif'] = ['SimHei']
-t=np.arange(len(x_test))
-plt.figure(facecolor='w')#建一个画布，facecolor是背景色
-plt.plot(t, x.reshape(1,-1), 'r-', linewidth=2, label='真实值')
-plt.plot(t, y_hat, 'g-', linewidth=1, label='predict value')
-plt.legend(loc = 'upper left') # 显示图例，设置图例的位置
-plt.title("The relationship between the predicted value and the true value", fontsize=14)
-plt.grid(b=True)#加网格
-plt.show()
+
 
