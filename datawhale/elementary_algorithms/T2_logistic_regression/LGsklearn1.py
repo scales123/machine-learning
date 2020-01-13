@@ -1,6 +1,5 @@
 # -*- coding: UTF-8 -*-
 
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -13,4 +12,3 @@ ax = plt.axes()
 df_X.query('label == 0').plot.scatter(x=0, y=1, ax=ax, color='blue')
 df_X.query('label == 1').plot.scatter(x=0, y=1, ax=ax, color='red')
 plt.show()
-
