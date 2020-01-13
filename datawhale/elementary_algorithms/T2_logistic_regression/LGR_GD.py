@@ -31,7 +31,11 @@ class LGR_GD():
         self.n_iters = 0
         # ============================= show me your code =======================
         while tol > loss:  # 设置收敛条件
-
+            # 计算Sigmoid函数结果
+            sigmoid = 1 / (1 + np.exp(-X.dot(self.w.T)))
+            theta = self.w + alpha * np.mean(X * (y - sigmoid), axis=0)  # 迭代theta的值
+            tol = np.sum(np.abs(theta - self.w))  # 计算损失值
+            self.w = theta
             self.n_iters += 1  # 更新迭代次数
         # ============================= show me your code =======================
 
