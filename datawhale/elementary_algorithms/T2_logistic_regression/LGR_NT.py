@@ -1,6 +1,5 @@
 # -*- coding: UTF-8 -*-
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
 
 df_X = pd.read_csv('./logistic_x.txt', sep='\ +', header=None, engine='python')  # 读取X值
@@ -35,11 +34,12 @@ class LGR_NT():
         while tol > loss:
             zs = X.dot(self.w.T)
             h_f = 1 / (1 + np.exp(-zs))
-            grad = np.mean(X*(y - h_f),axis=0)
+            grad = np.mean(X*(y - h_f), axis=0)
+            # axis= 0 对**横轴操作**，在运算的过程中其运算的方向表现为**纵向运算**
             for i in range(d):
                 for j in range(d):
                     if j >= i:
-                        Hessian[i][j] = np.mean(h_f*(h_f-1)*X[:,i]*X[:,j])  # 更新海森矩阵中的值
+                        Hessian[i][j] = np.mean(h_f*(h_f-1)*X[:, i]*X[:, j])  # 更新海森矩阵中的值
                     else:
                         Hessian[i][j] = Hessian[j][i]  # 按海森矩阵的性质，对称点可直接得出结果
             theta = self.w - np.linalg.inv(Hessian).dot(grad)
@@ -57,25 +57,12 @@ class LGR_NT():
 
 
 if __name__ == "__main__":
-    lgr_nt = LGR_NT()
-    lgr_nt.fit(Xs, ys)
+    LGR_NT = LGR_NT()
+    LGR_NT.fit(Xs, ys)
 
     def predict(self, X):
         # 用已经拟合的参数值预测新自变量
         y_pred = X.dot(self.w)
         return y_pred
 
-
-if __name__ == "__main__":
-    lr_gd = LGR_GD()
-    lr_gd.fit(Xs, ys)
-
-    ax = plt.axes()
-
-    df_X.query('label == 0').plot.scatter(x=0, y=1, ax=ax, color='blue')
-    df_X.query('label == 1').plot.scatter(x=0, y=1, ax=ax, color='red')
-
-    _xs = np.array([np.min(Xs[:, 1]), np.max(Xs[:, 1])])
-    _ys = (lr_gd.w[0][0] + lr_gd.w[0][1] * _xs) / (- lr_gd.w[0][2])
-    plt.plot(_xs, _ys, lw=1)
-    plt.show()
+    print("牛顿法结果参数：%s;牛顿法迭代次数：%s" % (LGR_NT.w, LGR_NT.n_iters))

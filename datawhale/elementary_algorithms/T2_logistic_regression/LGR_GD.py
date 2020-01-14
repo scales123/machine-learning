@@ -48,8 +48,8 @@ class LGR_GD():
 
 
 if __name__ == "__main__":
-    lr_gd = LGR_GD()
-    lr_gd.fit(Xs, ys)
+    LGR_GD = LGR_GD()
+    LGR_GD.fit(Xs, ys)
 
     ax = plt.axes()
 
@@ -57,6 +57,7 @@ if __name__ == "__main__":
     df_X.query('label == 1').plot.scatter(x=0, y=1, ax=ax, color='red')
 
     _xs = np.array([np.min(Xs[:, 1]), np.max(Xs[:, 1])])
-    _ys = (lr_gd.w[0][0] + lr_gd.w[0][1] * _xs) / (- lr_gd.w[0][2])
+    _ys = (LGR_GD.w[0][0] + LGR_GD.w[0][1] * _xs) / (- LGR_GD.w[0][2])
     plt.plot(_xs, _ys, lw=1)
     plt.show()
+    print("梯度下降法结果参数：%s;梯度下降法迭代次数：%s" % (LGR_GD.w, LGR_GD.n_iters))
