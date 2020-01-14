@@ -12,19 +12,21 @@ y = x.dot(np.array([4.2, 5.7, 10.8]))
 class LR_GD():
     def __init__(self):
         self.w = None
-
     def fit(self, X, y, alpha=0.02, loss=1e-10):  # 设定步长为0.02,判断是否收敛的条件为1e-10
         y = y.reshape(-1, 1)  # 重塑y值的维度以便矩阵运算
         [m, d] = np.shape(X)  # 自变量的维度 (m为样本数，d为属性个数)
         self.w = np.ones((d))  # 将参数的初始值定为0
         tol = 1e5
         # ============================= show me your code =======================
+        i = 0
         while tol > loss:
-            for i in range(m - 1):
-                tol = np.square(x[i].dot(np.array(self.w)) - y[i])  # 损失值
-                print(tol)
-                J = (x[i].dot(np.array(self.w)) - y[i]) * x[i] / m  # 代价函数
-            self.w = self.w - alpha * J # 梯度下降迭代
+            # here
+            j = (2 / m) * X.T.dot((X.dot(self.w) - y))  # 代价函数梯度
+            self.w -= alpha * j  # 梯度下降迭代
+            tol = np.sum(np.square(X.dot(self.w) - y)) / m  # 误差
+            i += 1  # 迭代次数
+            print("训练轮数：", i, "误差:", tol, "参数：", self.w)
+        print('*********训练结束**********')
         # ============================= show me your code =======================
     def predict(self, X):
         # 用已经拟合的参数值预测新自变量
