@@ -36,16 +36,17 @@ class LGR_NT():
             h_f = 1 / (1 + np.exp(-zs))
             grad = np.mean(X*(y - h_f), axis=0)
             # axis= 0 对**横轴操作**，在运算的过程中其运算的方向表现为**纵向运算**
+
             for i in range(d):
                 for j in range(d):
                     if j >= i:
                         Hessian[i][j] = np.mean(h_f*(h_f-1)*X[:, i]*X[:, j])  # 更新海森矩阵中的值
                     else:
                         Hessian[i][j] = Hessian[j][i]  # 按海森矩阵的性质，对称点可直接得出结果
-            theta = self.w - np.linalg.inv(Hessian).dot(grad)
-            tol = np.sum(np.abs(theta - self.w))
-            self.w = theta
-            n_iters += 1
+            theta = self.w - np.linalg.inv(Hessian).dot(grad)  # 迭代公式
+            tol = np.sum(np.abs(theta - self.w))  # loss 平均绝对误差
+            self.w = theta  # 更新迭代值
+            n_iters += 1  # 更新迭代次数
         # ============================= show me your code =======================
         self.w = theta
         self.n_iters = n_iters

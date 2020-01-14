@@ -34,9 +34,12 @@ class LGR_GD():
             # 计算Sigmoid函数结果
             zs = X.dot(self.w.T)
             h_f = 1 / (1 + np.exp(-zs))
-            theta = self.w + alpha *np.mean(X*(y - h_f),axis=0)  # 计算迭代的参数值
+
+            theta = self.w + alpha * np.mean(X*(y - h_f), axis=0)  # 计算迭代的参数值
             # axis= 0 对**横轴操作**，在运算的过程中其运算的方向表现为**纵向运算**
-            tol = np.sum(np.abs(theta - self.w))
+
+            tol = np.sum(np.abs(theta - self.w))  # tol本身是一个差值？ 平均绝对误差
+
             self.w = theta  # 更新参数值
             self.n_iters += 1  # 更新迭代次数
         # ============================= show me your code =======================
