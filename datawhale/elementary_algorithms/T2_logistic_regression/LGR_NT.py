@@ -18,28 +18,47 @@ https://docs.scipy.org/doc/numpy/reference/generated/numpy.hstack.html
 """
 ys = df_X['label'].values
 
-class LGR_GD():
+
+class LGR_NT():
     def __init__(self):
         self.w = None
         self.n_iters = None
 
-    def fit(self, X, y, alpha=0.03, loss=1e-10):  # 设定步长为0.02，判断是否收敛的条件为1e-10
+    def fit(self, X, y, loss=1e-10):  # 判断是否收敛的条件为1e-10
         y = y.reshape(-1, 1)  # 重塑y值的维度以便矩阵运算
         [m, d] = np.shape(X)  # 自变量的维度
         self.w = np.zeros((1, d))  # 将参数的初始值定为0
         tol = 1e5
-        self.n_iters = 0
+        n_iters = 0
+        Hessian = np.zeros((d, d))
         # ============================= show me your code =======================
-        while tol > loss:  # 设置收敛条件
-            # 计算Sigmoid函数结果
+        while tol > loss:
             zs = X.dot(self.w.T)
             h_f = 1 / (1 + np.exp(-zs))
-            theta = self.w + alpha *np.mean(X*(y - h_f),axis=0)  # 计算迭代的参数值
-            # axis= 0 对**横轴操作**，在运算的过程中其运算的方向表现为**纵向运算**
+            grad = np.mean(X*(y - h_f),axis=0)
+            for i in range(d):
+                for j in range(d):
+                    if j >= i:
+                        Hessian[i][j] = np.mean(h_f*(h_f-1)*X[:,i]*X[:,j])  # 更新海森矩阵中的值
+                    else:
+                        Hessian[i][j] = Hessian[j][i]  # 按海森矩阵的性质，对称点可直接得出结果
+            theta = self.w - np.linalg.inv(Hessian).dot(grad)
             tol = np.sum(np.abs(theta - self.w))
-            self.w = theta  # 更新参数值
-            self.n_iters += 1  # 更新迭代次数
+            self.w = theta
+            n_iters += 1
         # ============================= show me your code =======================
+        self.w = theta
+        self.n_iters = n_iters
+
+    def predict(self, X):
+        # 用已经拟合的参数值预测新自变量
+        y_pred = X.dot(self.w)
+        return y_pred
+
+
+if __name__ == "__main__":
+    lgr_nt = LGR_NT()
+    lgr_nt.fit(Xs, ys)
 
     def predict(self, X):
         # 用已经拟合的参数值预测新自变量

@@ -30,7 +30,7 @@ ax = plt.axes()
 df_X.query('label == 0').plot.scatter(x=0, y=1, ax=ax, color='blue')
 df_X.query('label == 1').plot.scatter(x=0, y=1, ax=ax, color='red')
 
-_xs = np.array([np.min(Xs[:, 1]), np.max(Xs[:, 1])])
+_xs = np.array([np.min(Xs[:,]), np.max(Xs[:, 1])])
 # 将数据以二维图形式描点，并用学习得出的参数结果作为阈值，划分数据区域
 _ys = (lr.coef_[0][0] + lr.coef_[0][1] * _xs) / (- lr.coef_[0][2])
 plt.plot(_xs, _ys, lw=1)
