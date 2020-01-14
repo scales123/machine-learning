@@ -10,7 +10,7 @@ X, y = load_iris(return_X_y=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 clf = tree.DecisionTreeClassifier()
 clf = clf.fit(X_train, y_train)
-print ("Classifier Score:", clf.score(X_test, y_test))
+print("Classifier Score:", clf.score(X_test, y_test))
 
 tree.plot_tree(clf.fit(X, y))
 plt.show()
