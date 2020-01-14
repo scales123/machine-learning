@@ -18,16 +18,11 @@ class LR_GD():
         self.w = np.ones((d))  # 将参数的初始值定为0
         tol = 1e5
         # ============================= show me your code =======================
-        i = 0
-        self.w = self.w.reshape(-1, 1)  # 也可以这里不对self.w进行reshape，将上面改成self.w = np.ones((d, 1))
         while tol > loss:
-            # here
-            j = (2 / m) * X.T.dot((X.dot(self.w) - y))  # 代价函数梯度
-            self.w -= alpha * j  # 梯度下降迭代
-            tol = np.sum(np.square(X.dot(self.w) - y)) / m  # 均方误差
-            i += 1  # 迭代次数
-            print("训练轮数：", i, "误差:", tol, "参数：", self.w)
-        print('*********训练结束**********')
+            h_f = X.dot(self.w).reshape(-1, 1)
+            theta = self.w + alpha*np.mean(X*(y - h_f), axis=0)  # 计算迭代的参数值
+            tol = np.sum(np.abs(theta - self.w))
+            self.w = theta
         # ============================= show me your code =======================
     def predict(self, X):
         # 用已经拟合的参数值预测新自变量
