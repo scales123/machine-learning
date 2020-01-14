@@ -21,7 +21,7 @@ class LR_GD():
         while tol > loss:
             h_f = X.dot(self.w).reshape(-1, 1)
             theta = self.w + alpha*np.mean(X*(y - h_f), axis=0)  # 计算迭代的参数值
-            tol = np.sum(np.abs(theta - self.w))
+            tol = np.sum(np.abs(theta - self.w))  # 平均绝对误差
             self.w = theta
         # ============================= show me your code =======================
     def predict(self, X):
